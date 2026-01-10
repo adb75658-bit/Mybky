@@ -15,48 +15,48 @@ def is_enabled(value, default):
 
 
 SESSION = environ.get('SESSION', 'media_search')
-API_ID = int(environ.get('API_ID', ''))
-API_HASH = environ.get('API_HASH', '')
-BOT_TOKEN = environ.get('BOT_TOKEN', "")
+API_ID = int(environ.get('API_ID', '20447284'))
+API_HASH = environ.get('API_HASH', 'b215f8e05089c399ed89170544621a70')
+BOT_TOKEN = environ.get('BOT_TOKEN', "8434632140:AAGSb4PnTr9vAmlRXiBOlVUxMBtMPRNc92U")
 
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 
-PICS = (environ.get('PICS', 'https://i.ibb.co/ch3n9wsf/x.jpg')).split() 
-NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/62efbcc4e7580b76530ba.jpg")
+PICS = (environ.get('PICS', 'https://graph.org/file/574e102f817be0adcabdc-907064efc58e5b56f7.jpg https://graph.org/file/0b7ee7b7325e136d554de-3671039f2eba6e1f1d.jpg https://graph.org/file/febaa7f7bc100758d5356-a5107b732f39080e70.jpg https://graph.org/file/4b0d3003a529402b53bf7-cb52700c8e5e71cf0e.jpg https://graph.org/file/061fabc381ff6f2cd37a1-3c62f6c36a19f575e8.jpg https://graph.org/file/87aba191c88349b691200-da9f49ea887b0bce69.jpg https://graph.org/file/3d0abc7000f4b37b41877-07db44d84ccde7cb35.jpg')).split() 
+NOR_IMG = environ.get("NOR_IMG", " https://graph.org/file/3d0abc7000f4b37b41877-07db44d84ccde7cb35.jpg ")
 MELCOW_VID = environ.get("MELCOW_VID", "https://graph.org/file/e215d12bfd4fa2155e90e.mp4")
 SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/13702ae26fb05df52667c.jpg")
 SUBSCRIPTION = (environ.get('SUBSCRIPTION', 'https://telegra.ph/file/f983d857f3ce40795e4b8.jpg'))
 FSUB_IMG = (environ.get('FSUB_IMG', 'https://i.ibb.co/cShkPjcZ/x.jpg')).split() 
 
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()] 
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-100').split()]
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-100'))  
-BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-100'))  
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '8587405600').split()] 
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1003408919601 -1002658908912 -1003370992067').split()]
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1003694638575'))  
+BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1003694638575'))  
 MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-100'))  
 PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-100')) 
 auth_grp = environ.get('AUTH_GROUP')
 AUTH_GROUPS = [int(ch) for ch in auth_grp.split()] if auth_grp else None
-reqst_channel = environ.get('REQST_CHANNEL_ID', '-100') 
+reqst_channel = environ.get('REQST_CHANNEL_ID', '-1003694638575') 
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '-100') 
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
-DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://ASMOVIE_DA:ASMOVIE_DA@cluster0.grfdxbo.mongodb.net/?appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'SilentXBotz_files')
 
 # If MULTIPLE_DB Is True Then Fill DATABASE_URI2 Value Else You Will Get Error.
 MULTIPLE_DB = is_enabled(os.environ.get('MULTIPLE_DB', "True"), True) # Type True For Turn On MULTIPLE DB FUNTION 
-DATABASE_URI2 = environ.get('DATABASE_URI2', "")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://SACHIN_DB:SACHIN_DB@cluster0.7jn4oby.mongodb.net/?appName=Cluster0")
 DB_CHANGE_LIMIT = int(environ.get('DB_CHANGE_LIMIT', "432")) 
 
-GRP_LNK = environ.get('GRP_LNK', 'https://t.me/SilentXBotz')
-CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/SilentXBotz')
-OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/SilentXBotz')
-UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/SilentXBotz')
+GRP_LNK = environ.get('GRP_LNK', 'https://t.me/Cinema_Lokam_Movies')
+CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/Cinema_Updates_OTT')
+OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/Aswanthcreator')
+UPDATE_CHANNEL_LNK = environ.get('UPDATE_CHANNEL_LNK', 'https://t.me/Cinema_Updates_OTT')
 
-AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-100") # add multiple channels here, separated by single space
+AUTH_CHANNEL = environ.get("AUTH_CHANNEL", "-1003694638575") # add multiple channels here, separated by single space
 AUTH_REQ_CHANNEL = environ.get('AUTH_REQ_CHANNEL', '-100')
 
 IS_VERIFY = is_enabled('IS_VERIFY', False)
@@ -85,13 +85,13 @@ NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", True))
 MAX_B_TN = environ.get("MAX_B_TN", "8")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
 PORT = environ.get("PORT", "8089")
-MSG_ALRT = environ.get('MSG_ALRT', 'Share & Support Us ♥️')
+MSG_ALRT = environ.get('MSG_ALRT', 'powerded by @Aswanthcreator')
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'https://t.me/') 
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
 AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "True")), True)
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "True")), True)
-AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "300"))  
+AUTO_DELETE_TIME = int(environ.get("AUTO_DELETE_TIME", "600"))  
 LINK_MODE = is_enabled((environ.get('LINK_MODE', "True")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
 BATCH_FILE_CAPTION = environ.get("BATCH_FILE_CAPTION", CUSTOM_FILE_CAPTION)
