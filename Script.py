@@ -1,23 +1,98 @@
 class script(object):
-    START_TXT = """<b>👋 ʜᴇʟʟᴏ {},
+    START_TXT = """<b>Hᴇʟʟᴏ {},❣️
+    
+<blockquote>➥ Mʏ Nᴀᴍᴇ Iꜱ  <a href=https://t.me/{}>{}</a>,⚡</blockquote>
 
-ɪ ᴀᴍ ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ.
+➥ Fᴏʀ Mᴏʀᴇ Dᴇᴛᴀɪʟꜱ Cʟɪᴄᴋ /help.
 
-ɪ ᴄᴀɴ ᴘʀᴏᴠɪᴅᴇ ᴍᴏᴠɪᴇꜱ, ꜱᴇʀɪᴇꜱ, ᴀɴɪᴍᴇꜱ, ᴀɴᴅ ᴍᴜᴄʜ ᴍᴏʀᴇ... 🎬
+<blockquote>➥ I Cᴀɴ Pʀᴏᴠɪᴅᴇ Mᴏᴠɪᴇꜱ.</blockquote>
 
-ᴊᴜꜱᴛ ꜱᴇɴᴅ ᴍᴇ ᴛʜᴇ ɴᴀᴍᴇ ᴏꜰ ᴛʜᴇ ᴍᴏᴠɪᴇ/ꜱᴇʀɪᴇꜱ ʏᴏᴜ ᴡᴀɴᴛ. 🔍</b>"""
+➥ Jᴜꜱᴛ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ Aꜱ Aᴅᴍɪɴ Aɴᴅ Eɴᴊᴏʏ😍. 🔍</b>
+"""
+    OWNER_TXT = """<b>┏━•❃𓊈𒆜Oᴡɴᴇʀ Dᴇᴛᴀɪʟꜱ𒆜𓊉❃•━┓   
+ ◈ ᴘᴇʀᴍᴀɴᴇɴᴛ ᴅᴍ ʟɪɴᴋ : <a href='https://t.me/Aswanthcreator'>❥︵₣σrεvëɾ⌁</a>
+‿︵‿︵‿︵‿୨❤୧‿︵‿︵‿︵‿
+</b>"""
+    RULES_TXT = """<b> ♨️ 𝗥𝗨𝗟𝗘𝗦 ♨️
 
+🔹 Sᴇᴀʀᴄʜ Mᴏᴠɪᴇ Wɪᴛʜ Cᴏʀʀᴇᴄᴛ Sᴘᴇʟʟɪɴɢ :
+› ᴀᴠᴀᴛᴀʀ 2009 ✅
+› ᴀᴠᴀᴛᴀʀ ʜɪɴᴅɪ ✅
+› ᴀᴠᴀᴛᴀʀ ᴍᴏᴠɪᴇ ❌
+› ᴀᴠᴀᴛᴀʀ ʜɪɴᴅɪ ᴅᴜʙʙᴇᴅ..❌
+
+🔹Sᴇᴀʀᴄʜ Wᴇʙ Sᴇʀɪᴇs Iɴ ᴛʜɪs Fᴏʀᴍᴀᴛᴇ : 
+› ᴠɪᴋɪɴɢs S01 ✅
+› ᴠɪᴋɪɴɢs S01E01 ✅
+› ᴠɪᴋɪɴɢs S01 ʜɪɴᴅɪ ✅
+› ᴠɪᴋɪɴɢs S01 ʜɪɴᴅɪ ᴅᴜʙʙ. ❌
+› ᴠɪᴋɪɴɢs sᴇᴀsᴏɴ 1 ❌
+› ᴠɪᴋɪɴɢs ᴡᴇʙ sᴇʀɪᴇs ❌
+
+🔹 ᴅᴏɴ'ᴛ ᴅᴏ ᴀɴʏ sᴇʟғ ᴘʀᴏᴍᴏᴛɪᴏɴ.
+
+🔹 ᴅᴏɴ'ᴛ sᴇɴᴅ ᴀɴʏ ᴋɪɴᴅ ᴏғ ᴘʜᴏᴛᴏ, ᴠɪᴅᴇᴏ ᴅᴏᴄᴜᴍᴇɴᴛs, ᴜʀʟ ᴇᴛᴄ..
+
+🔹 ᴅᴏɴ'ᴛ ʀᴇǫᴜᴇsᴛ ᴀɴʏ ᴛʜɪɴɢs ᴏᴛʜᴇʀ ᴛʜᴀɴ ᴍᴏᴠɪᴇ sᴇʀɪᴇs ᴀɴɪᴍᴇs..
+
+⚙️ 𝖭ᴏᴛᴇ :- 𝖠ʟʟ ᴍᴇ𝗌𝗌ᴀɢᴇ𝗌 ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏ-ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 𝟷𝟶 ᴍɪɴᴜᴛᴇ𝗌 ᴛᴏ ᴀᴠᴏɪᴅ ᴄᴏᴘʏʀɪɢʜᴛ ɪ𝗌𝗌ᴜᴇ𝗌.</b>"""
+    
     FEATURES_TXT = """<b>🛠️ ʜᴇʀᴇ ᴀʀᴇ ᴍʏ ᴀᴠᴀɪʟᴀʙʟᴇ ꜰᴇᴀᴛᴜʀᴇꜱ 🛠️</b>"""
+    HELPS_TXT = """<b> 
+❗️How to Search Movies Here❓ 
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+1. Just Send Movie Name and Movie Released Year Correctly.
+<blockquote>(Check Google for Correct Movie Spelling and Movie Released Year)</blockquote>
 
-    ABOUT_TXT = """<b>╭───────────⍟
-├🤖 ᴍʏ ɴᴀᴍᴇ : <a href=https://t.me/{}>{}</a>
-├👑 ᴏᴡɴᴇʀ : <a href={}>ᴏᴡɴᴇʀ</a>
-├👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href=https://t.me/SilentXBotz>ꜱɪʟᴇɴᴛxʙᴏᴛᴢ </a>
-├📕 ʟɪʙʀᴀʀʏ : <a href=https://github.com/pyrogram>ᴘʏʀᴏɢʀᴀᴍ</a>
-├✏️ ʟᴀɴɢᴜᴀɢᴇ : <a href=https://www.python.org>ᴘʏᴛʜᴏɴ 3</a>
-├💾 ᴅᴀᴛᴀʙᴀꜱᴇ : <a href=https://cloud.mongodb.com>ᴍᴏɴɢᴏ ᴅʙ</a>
-├📊 ʙᴜɪʟᴅ ᴠᴇʀꜱɪᴏɴ : V4.3 [ ꜱᴛᴀʙʟᴇ ]
-╰───────────────⍟</b>"""
+Examples: - 
+Oppam 2016
+Baahubali 2015
+
+Oppam 2016 1080p
+Baahubali 2015 1080p
+<blockquote>(For Getting only 1080p Quality Files)</blockquote>
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+Baahubali 2015 Malayalam 
+Baahubali 2015 Tamil 
+<blockquote>(For Dubbed Movie Files)</blockquote>
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+❗️On Android, Better Use VLC Media Player For Watch Movie's.
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+Cᴏɴᴛᴀᴄᴛ Bᴏᴛ Dᴇᴠᴇʟᴏᴘᴇʀ (Oʀ) Rᴇᴘᴏʀᴛ Bᴜɢꜱ..!! 👉</b> @Aswanthcreator"""
+    HELP_TXT = """<b>ʜᴇʟʟᴏ {}
+𝐻𝑒𝑟𝑒 𝑖𝑠 𝑚𝑦 𝑢𝑠𝑒𝑓𝑢𝑙𝑙 𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠.</b>"""
+    CHANNELS = """<b>⚡ ɢʀᴏᴜᴘs & ᴄʜᴀɴɴᴇʟs ɪɴғᴏ ⚡ 
+
+▫ ᴀʟʟ ɴᴇᴡ ᴍᴏᴠɪᴇs & sᴇʀɪᴇs.
+▫ ғᴀsᴛᴇsᴛ ʙᴏᴛs ᴀʀᴇ ᴀᴅᴅᴇᴅ.
+▫ ғʀᴇᴇ & ᴇᴀsʏ ᴛᴏ ᴜsᴇ.
+▫ 𝟸𝟺x𝟽 sᴇʀᴠɪᴄᴇs ᴀᴠᴀɪʟᴀʙʟᴇ.</b>"""
+    EARN_TXT = """<b>Yᴏᴜ ᴄᴀɴ Eᴀʀɴ Mᴏɴᴇʏ</b>"""
+    GROUP_TXT = """<b>Hᴇʏ {}</b>
+
+/set_shortner - <code>Tᴏ Sᴇᴛ Cᴜsᴛᴏᴍ Sʜᴏʀᴛᴇɴᴇʀ</code>
+/setshortneron - <code>Tᴏ Sᴇᴛ Sʜᴏʀᴛɴᴇʀ Oɴ</code>
+/setshortneroff - <code>Tᴏ Sᴇᴛ Sʜᴏʀᴛɴᴇʀ Oғғ</code>
+/set_tutorial - <code>Tᴏ Sᴇᴛ Cᴜsᴛᴏᴍ Tᴜᴛᴏʀɪᴀʟ</code>
+/remove_tutorial - <code>Tᴏ Rᴇᴍᴏᴠᴇ Tᴜᴛᴏʀɪᴀʟ</code>
+/get_info - <code>Tᴏ Cʜᴇᴄᴋ Yᴏᴜʀ Vᴀʟᴜᴇs</code>
+
+<b>♻️ Exᴀᴍᴘʟᴇs :</b>
+👉/set_shortner instantearn.in86ddad334ef3ab00f983d0dca9e58e62dda9cbdb
+
+👉/set_tutorial https://t.me/c/2093349416/5"""
+    
+    ABOUT_TXT = """<b>
+• Mʏ Nᴀᴍᴇ: <a href=https://t.me/{}>{}</a>
+✭ Oᴡɴᴇʀ : <a href='https://t.me/Aswanthcreator'>𓆩•₣σrεvëɾ💞•𓆪</a>
+• Lɪʙʀᴀʀʏ: <a href='https://docs.pyrogram.org/'>Pʏʀᴏɢʀᴀᴍ</a>
+• Bᴏᴛ Sᴇʀᴠᴇʀ: <a href='https://heroku.com/'>𝐇𝖾𝗋ⱺ𝗄υ</a>
+• Lᴀɴɢᴜᴀɢᴇ: <a href='https://www.python.org/download/releases/3.0/'>Pʏᴛʜᴏɴ 3</a>
+• DᴀᴛᴀBᴀsᴇ: <a href='https://www.mongodb.com/'>MᴏɴɢᴏDB</a>
+</b>"""
+    SOURCE_TXT = """<b><blockquote>Nᴏᴛᴇ:</blockquote>
+<blockquote>✭ Tʜɪs Pʀᴏᴊᴇᴄᴛ Isɴ'ᴛ Oᴘᴇɴ–Sᴏᴜʀᴄᴇ. Iғ Yᴏᴜ Nᴇᴇᴅ Aɴʏ Hᴇʟᴘ Oʀ Hᴀᴠᴇ Qᴜᴇsᴛɪᴏɴs, Yᴏᴜ Cᴀɴ Mᴇssᴀɢᴇ Us Dɪʀᴇᴄᴛʟʏ</blockquote>
+<blockquote>✭ Cᴏɴᴛᴀᴄᴛ ᴛᴏ ᴛʜᴇ ᴅᴇᴠᴇʟᴏᴘᴇʀ ☟.</blockquote></b>"""
 
     FORCESUB_TEXT = """<b>⚠️ ᴀᴄᴄᴇꜱꜱ ᴅᴇɴɪᴇᴅ ⚠️
 
@@ -322,4 +397,3 @@ class script(object):
 
     PAGE_TXT = """ᴡʜʏ ᴀʀᴇ ʏᴏᴜ ꜱᴏ ᴄᴜʀɪᴏᴜꜱ ⁉️"""    
    
-    SOURCE_TXT = """<b>𝖲𝖮𝖴𝖱𝖢𝖤 𝖢𝖮𝖣𝖤 :</b> 👇\nᴛʜɪꜱ ɪꜱ ᴀɴ ᴏᴘᴇɴ-ꜱᴏᴜʀᴄᴇ ᴘʀᴏᴊᴇᴄᴛ. ʏᴏᴜ ᴄᴀɴ ᴜꜱᴇ ɪᴛ ꜰʀᴇᴇʟʏ, ʙᴜᴛ ꜱᴇʟʟɪɴɢ ᴛʜᴇ ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ɪꜱ ꜱᴛʀɪᴄᴛʟʏ ᴘʀᴏʜɪʙɪᴛᴇᴅ."""
