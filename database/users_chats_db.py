@@ -300,14 +300,25 @@ class Database:
         
     async def has_premium_access(self, user_id):
         user_data = await self.get_user(user_id)
-        if user_data:
-            expiry_time = user_data.get("expiry_time")
-            if expiry_time is None:
-                return False
-            elif isinstance(expiry_time, datetime.datetime) and datetime.datetime.now() <= expiry_time:
+
+        if not user_data:
+            return False
+
+        expiry_time = user_data.get("expiry_time")
+
+        if not expiry_time:
+            return False
+
+        if isinstance(expiry_time, datetime.datetime):
+            if datetime.datetime.now() <= expiry_time:
                 return True
             else:
-                await self.users.update_one({"id": user_id}, {"$set": {"expiry_time": None}})
+                await self.users.update_one(
+                    {"id": user_id},
+                    {"$set": {"expiry_time": None}}
+                )
+                return False
+
         return False
         
     async def update_user(self, user_data):
