@@ -302,3 +302,10 @@ async def list_chats(bot, message):
         with open('chats.txt', 'w+') as outfile:
             outfile.write(out)
         await message.reply_document('chats.txt', caption="List Of Chats")
+@Client.on_message(filters.command('help'))
+async def help(client, message):
+    await message.reply_text(
+        text=script.HELPS_TXT.format(message.from_user.mention),
+        parse_mode=enums.ParseMode.HTML,
+        quote=True
+        )
