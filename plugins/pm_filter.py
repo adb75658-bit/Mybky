@@ -1161,6 +1161,51 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+   
+    elif query.data == "owner":
+            btn = [[
+                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="about")
+                  ]]
+            reply_markup = InlineKeyboardMarkup(btn)
+            await query.message.edit_text(text="<<<Please Wait>>>")
+            await asyncio.sleep(1)
+            reply_markup = InlineKeyboardMarkup(btn)
+            await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+            )
+            await query.message.edit_text(
+                text=(script.OWNER_TXT),
+                reply_markup=reply_markup,
+                parse_mode=enums.ParseMode.HTML
+            )
+    elif query.data == "json":
+        buttons = [[
+            InlineKeyboardButton('⟸ ʙᴀᴄᴋ ', callback_data='extrafeatures')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text(
+            text="● ◌ ◌"
+        )
+        await query.message.edit_text(
+            text="● ● ◌"
+        )
+        await query.message.edit_text(
+            text="● ● ●"
+        )
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id, 
+            query.message.id, 
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.FONT_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
     elif query.data == "stats":
     await query.answer("Refreshing stats...")
 
@@ -1213,7 +1258,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     buttons = InlineKeyboardMarkup([
         [
             InlineKeyboardButton("⟲ Refresh", callback_data="stats"),
-            InlineKeyboardButton("⟸ Back", callback_data="help")
+            InlineKeyboardButton("⟸ Back", callback_data="extrafeatures")
         ]
     ])
 
@@ -1221,52 +1266,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         text=text,
         reply_markup=buttons,
         parse_mode="html"
-		)
-    elif query.data == "owner":
-            btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="about")
-                  ]]
-            reply_markup = InlineKeyboardMarkup(btn)
-            await query.message.edit_text(text="<<<Please Wait>>>")
-            await asyncio.sleep(1)
-            reply_markup = InlineKeyboardMarkup(btn)
-            await client.edit_message_media(
-            query.message.chat.id,
-            query.message.id,
-            InputMediaPhoto(random.choice(PICS))
-            )
-            await query.message.edit_text(
-                text=(script.OWNER_TXT),
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML
-            )
-    elif query.data == "json":
-        buttons = [[
-            InlineKeyboardButton('⟸ ʙᴀᴄᴋ ', callback_data='extrafeatures')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text="● ◌ ◌"
-        )
-        await query.message.edit_text(
-            text="● ● ◌"
-        )
-        await query.message.edit_text(
-            text="● ● ●"
-        )
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(random.choice(PICS))
-        )
-        await query.message.edit_text(
-            text=script.FONT_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-
-                    
+	)               
     elif query.data == "me":
         buttons = [[
             InlineKeyboardButton ('🎁 sᴏᴜʀᴄᴇ', callback_data='source'),
