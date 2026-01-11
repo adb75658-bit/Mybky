@@ -198,7 +198,6 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 
 <b>• Tᴏᴛᴀʟ Usᴇʀs:</b> <code>{}</code>
 <b>• Tᴏᴛᴀʟ Cʜᴀᴛs:</b> <code>{}</code>
-├⋟ 💎 ᴘʀᴇᴍɪᴜᴍ ⋟ <code>{}</code>
 <b>• Tᴏᴛᴀʟ Fɪʟᴇs:</b> <code>{}</code>
 <b>• Usᴇᴅ Sᴛᴏʀᴀɢᴇ:</b> <code>{}</code>
 <b>• Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ:</b> <code>{}</code>
