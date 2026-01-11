@@ -1161,7 +1161,67 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
-   
+    elif query.data == "stats":
+        await query.answer("Refreshing stats...")
+
+        DB_SIZE = 512 * 1024 * 1024  # 512MB
+
+        total_users = await db.total_users_count()
+        total_chats = await db.total_chat_count()
+
+        file1 = await Media.count_documents()
+        db1 = await db_stats.command("dbStats")
+        used1 = db1["dataSize"]
+        free1 = DB_SIZE - used1
+
+        uptime = get_readable_time(time() - botStartTime)
+        ram = psutil.virtual_memory().percent
+        cpu = psutil.cpu_percent()
+
+        if MULTIPLE_DB is False:
+            text = script.STATUS_TXT.format(
+                total_users,
+                total_chats,
+                file1,
+                get_size(used1),
+                get_size(free1),
+                uptime,
+                ram,
+                cpu
+            )
+        else:
+            file2 = await Media2.count_documents()
+            db2 = await db2_stats.command("dbStats")
+            used2 = db2["dataSize"]
+            free2 = DB_SIZE - used2
+
+            text = script.MULTI_STATUS_TXT.format(
+                total_users,
+                total_chats,
+                file1,
+                get_size(used1),
+                get_size(free1),
+                file2,
+                get_size(used2),
+                get_size(free2),
+                uptime,
+                ram,
+                cpu,
+                int(file1) + int(file2)
+            )
+
+        buttons = InlineKeyboardMarkup([
+            [
+                InlineKeyboardButton("⟲ Refresh", callback_data="stats"),
+                InlineKeyboardButton("⟸ Back", callback_data="extrafeatures")
+            ]
+        ])
+
+        await query.message.edit_text(
+            text=text,
+            reply_markup=buttons,
+            parse_mode="html"
+			)
     elif query.data == "owner":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="about")
@@ -1206,67 +1266,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif query.data == "stats":
-    await query.answer("Refreshing stats...")
-
-    DB_SIZE = 512 * 1024 * 1024  # 512MB
-
-    total_users = await db.total_users_count()
-    total_chats = await db.total_chat_count()
-
-    file1 = await Media.count_documents()
-    db1 = await db_stats.command("dbStats")
-    used1 = db1["dataSize"]
-    free1 = DB_SIZE - used1
-
-    uptime = get_readable_time(time() - botStartTime)
-    ram = psutil.virtual_memory().percent
-    cpu = psutil.cpu_percent()
-
-    if MULTIPLE_DB is False:
-        text = script.STATUS_TXT.format(
-            total_users,
-            total_chats,
-            file1,
-            get_size(used1),
-            get_size(free1),
-            uptime,
-            ram,
-            cpu
-        )
-    else:
-        file2 = await Media2.count_documents()
-        db2 = await db2_stats.command("dbStats")
-        used2 = db2["dataSize"]
-        free2 = DB_SIZE - used2
-
-        text = script.MULTI_STATUS_TXT.format(
-            total_users,
-            total_chats,
-            file1,
-            get_size(used1),
-            get_size(free1),
-            file2,
-            get_size(used2),
-            get_size(free2),
-            uptime,
-            ram,
-            cpu,
-            int(file1) + int(file2)
-        )
-
-    buttons = InlineKeyboardMarkup([
-        [
-            InlineKeyboardButton("⟲ Refresh", callback_data="stats"),
-            InlineKeyboardButton("⟸ Back", callback_data="extrafeatures")
-        ]
-    ])
-
-    await query.message.edit_text(
-        text=text,
-        reply_markup=buttons,
-        parse_mode="html"
-	)               
     elif query.data == "me":
         buttons = [[
             InlineKeyboardButton ('🎁 sᴏᴜʀᴄᴇ', callback_data='source'),
