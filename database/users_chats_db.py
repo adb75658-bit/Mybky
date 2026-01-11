@@ -298,7 +298,7 @@ class Database:
         newvalues = { "$set": value }
         return await self.verify_id.update_one(myquery, newvalues)
         
-    if async def has_premium_access(self, user_id):
+    async def has_premium_access(self, user_id):
         user_data = await self.get_user(user_id)
         if user_data:
             expiry_time = user_data.get("expiry_time")
