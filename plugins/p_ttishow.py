@@ -165,7 +165,6 @@ async def get_stats(bot, message):
         SilentXBotz = await message.reply('ᴀᴄᴄᴇꜱꜱɪɴɢ ꜱᴛᴀᴛᴜꜱ ᴅᴇᴛᴀɪʟꜱ...')
         total_users = await db.total_users_count()
         totl_chats = await db.total_chat_count()
-        premium = await db.all_premium_users()
         file1 = await Media.count_documents()
         DB_SIZE = 512 * 1024 * 1024
         dbstats = await db_stats.command("dbStats")
