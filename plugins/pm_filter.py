@@ -1143,28 +1143,36 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
 		)
     elif query.data == "extrafeatures":
-        buttons = [[
-            InlineKeyboardButton('Fᴏɴᴛ Gᴇɴᴇʀᴀᴛᴏʀ 📝', callback_data='json'),
-        ],[
-            InlineKeyboardButton('Sᴛᴀᴛs 📈', callback_data='stats'),
-        ],[
-            InlineKeyboardButton('⇚Back', callback_data='start')
-        ]]
+        buttons = [
+            [
+                InlineKeyboardButton('Fᴏɴᴛ Gᴇɴᴇʀᴀᴛᴏʀ 📝', callback_data='json'),
+            ],
+            [
+                InlineKeyboardButton('Sᴛᴀᴛs 📈', callback_data='stats'),
+            ],
+            [
+                InlineKeyboardButton('⇚ Back', callback_data='start')
+            ]
+        ]
+
         reply_markup = InlineKeyboardMarkup(buttons)
-	    await query.message.edit_text(text="▮▯▯")
-        await query.message.edit_text(text="▮▮▯")
-        await query.message.edit_text(text="▮▮▮")
-		reply_markup = InlineKeyboardMarkup(buttons)
+
+        # Loading animation
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+
         await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
+            query.message.chat.id,
+            query.message.id,
             InputMediaPhoto(random.choice(PICS))
         )
+
         await query.message.edit_text(
             text=script.COOL_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-        )
+		)
     elif query.data == "stats":
         await query.answer("Refreshing stats...")
 
