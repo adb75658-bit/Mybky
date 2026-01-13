@@ -1099,65 +1099,68 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "rules":
-            btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
-                  ]]
-            reply_markup = InlineKeyboardMarkup(btn)
-            # Loading animation
-            await query.message.edit_text("▮▯▯")
-            await query.message.edit_text("▮▮▯")
-            await query.message.edit_text("▮▮▮")
-		
-            await client.edit_message_media(
+        btn = [[
+            InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
+        ]]
+        reply_markup = InlineKeyboardMarkup(btn)
+
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+
+        await client.edit_message_media(
             query.message.chat.id,
             query.message.id,
             InputMediaPhoto(random.choice(PICS))
-            )
-            await query.message.edit_text(
-                text=(script.RULES_TXT),
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML
-            )        
+        )
+        await query.message.edit_text(
+            text=script.RULES_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+		)
     elif query.data == "setting":
-            btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
-                  ]]
-            reply_markup = InlineKeyboardMarkup(btn)
-            # Loading animation
-            await query.message.edit_text("▮▯▯")
-            await query.message.edit_text("▮▮▯")
-            await query.message.edit_text("▮▮▮")
-            await client.edit_message_media(
+        btn = [[
+            InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
+        ]]
+        reply_markup = InlineKeyboardMarkup(btn)
+
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+
+        await client.edit_message_media(
             query.message.chat.id,
             query.message.id,
             InputMediaPhoto(random.choice(PICS))
-            )
-            await query.message.edit_text(
-                text=(script.SETTING_TXT),
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML
-            )
+        )
+        await query.message.edit_text(
+            text=script.SETTING_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
     elif query.data == "extra":
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help'),
             InlineKeyboardButton('ᴀᴅᴍɪɴ', callback_data='admin')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        # Loading animation
+
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
-		
+
         await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
+            query.message.chat.id,
+            query.message.id,
             InputMediaPhoto(random.choice(PICS))
         )
         await query.message.edit_text(
             text=script.EXTRAMOD_TXT.format(OWNER_LNK, CHNL_LNK),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-		)
+        )
+
     elif query.data == "source":
         buttons = [[
             InlineKeyboardButton('✉️ Cᴏɴᴛᴀᴄᴛ', url='https://t.me/Aswanthcreator'),
@@ -1165,11 +1168,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
 
-        # Loading animation
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
-		
+
         await client.edit_message_media(
             query.message.chat.id,
             query.message.id,
@@ -1179,20 +1181,47 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.SOURCE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-         )
+     	)
     elif query.data == "update":
-        buttons = [[ 
-             InlineKeyboardButton('🍀 Mᴀɪɴ Sᴇᴀʀᴄʜ Gʀᴏᴜᴘ 🍀', url='https://t.me/Cinema_Lokam_Movies')
-         ], [
-             InlineKeyboardButton('🍂 Cᴏᴍᴘʟᴀɪɴᴛs Gʀᴏᴜᴘ 🍂', url='https://t.me/complaintgroup1') 
-         ], [ 
-             InlineKeyboardButton('🥀 Mᴀɪɴ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ 🥀', url='https://t.me/Cinema_Updates_OTT')
-         ], [
-             InlineKeyboardButton('♙ Hᴏᴍᴇ', callback_data='start'),
-             InlineKeyboardButton('Cʟᴏsᴇ ✘', callback_data='close_data')
-         ], [ 
-             InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='start')
-         ]]
+        buttons = [[
+            InlineKeyboardButton(
+                '🍀 Mᴀɪɴ Sᴇᴀʀᴄʜ Gʀᴏᴜᴘ 🍀',
+                url='https://t.me/Cinema_Lokam_Movies'
+            )
+        ], [
+            InlineKeyboardButton(
+                '🍂 Cᴏᴍᴘʟᴀɪɴᴛs Gʀᴏᴜᴘ 🍂',
+                url='https://t.me/complaintgroup1'
+            )
+        ], [
+            InlineKeyboardButton(
+                '🥀 Mᴀɪɴ Uᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟ 🥀',
+                url='https://t.me/Cinema_Updates_OTT'
+            )
+        ], [
+            InlineKeyboardButton('♙ Hᴏᴍᴇ', callback_data='start'),
+            InlineKeyboardButton('Cʟᴏsᴇ ✘', callback_data='close_data')
+        ], [
+            InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='start')
+        ]]
+
+        reply_markup = InlineKeyboardMarkup(buttons)
+
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.CHANNELS,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
     elif query.data == "earn":
         buttons = [[
             InlineKeyboardButton('✉️ Cᴏɴᴛᴀᴄᴛ', url='https://t.me/Aswanthcreator'),
@@ -1200,11 +1229,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
 
-        # Loading animation
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
-		
+
         await client.edit_message_media(
             query.message.chat.id,
             query.message.id,
@@ -1214,7 +1242,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             text=script.EARN_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-		)
+        )
     elif query.data == "extrafeatures":
         buttons = [
             [
