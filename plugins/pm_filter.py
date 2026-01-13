@@ -857,7 +857,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 		)
     elif query.data == "help":
         buttons = [[ 
-             InlineKeyboardButton('• 🇬 🇷 🇴 🇺 🇵  🇲 🇪 🇳 🇺 •', callback_data='group')
+            InlineKeyboardButton('• 🇬 🇷 🇴 🇺 🇵  🇲 🇪 🇳 🇺 •', callback_data='group')
         ],[
             InlineKeyboardButton('• Fɪʟᴛᴇʀs •', callback_data='filters'),   
             InlineKeyboardButton('• Fɪʟᴇ Sᴛᴏʀᴇ •', callback_data='store_file') 
@@ -870,21 +870,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ],[ 
             InlineKeyboardButton('⇍ Bᴀᴄᴋ ⇏', callback_data='start')
         ]]
+
         reply_markup = InlineKeyboardMarkup(buttons)
-		await query.message.edit_text("▮▯▯")
-		await query.message.edit_text("▮▮▯")
-		await query.message.edit_text("▮▮▮")
-		reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+
         await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
+            query.message.chat.id,
+            query.message.id,
             InputMediaPhoto(random.choice(PICS))
         )
+
         await query.message.edit_text(
             text=script.HELP_TXT.format(query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-        )
+		)
     elif query.data == "about":
         buttons = [[
             InlineKeyboardButton('↼ Exᴛʀᴀ Fᴇᴀᴛᴜʀᴇs ⇀', callback_data='extrafeatures'),
@@ -1056,43 +1058,47 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "rules":
-            btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
-                  ]]
-            reply_markup = InlineKeyboardMarkup(btn)
-            await query.message.edit_text("▮▯▯")
-		    await query.message.edit_text("▮▮▯")
-		    await query.message.edit_text("▮▮▮")
-            reply_markup = InlineKeyboardMarkup(btn)
-            await client.edit_message_media(
+        btn = [[
+            InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
+        ]]
+        reply_markup = InlineKeyboardMarkup(btn)
+
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+
+        await client.edit_message_media(
             query.message.chat.id,
             query.message.id,
             InputMediaPhoto(random.choice(PICS))
-            )
-            await query.message.edit_text(
-                text=(script.RULES_TXT),
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML
-            )        
+        )
+
+        await query.message.edit_text(
+            text=script.RULES_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+		)     
     elif query.data == "setting":
-            btn = [[
-                    InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
-                  ]]
-            reply_markup = InlineKeyboardMarkup(btn)
-		    await query.message.edit_text("▮▯▯")
-		    await query.message.edit_text("▮▮▯")
-		    await query.message.edit_text("▮▮▮")
-            reply_markup = InlineKeyboardMarkup(btn)
-            await client.edit_message_media(
+        btn = [[
+            InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
+        ]]
+        reply_markup = InlineKeyboardMarkup(btn)
+
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+
+        await client.edit_message_media(
             query.message.chat.id,
             query.message.id,
             InputMediaPhoto(random.choice(PICS))
-            )
-            await query.message.edit_text(
-                text=(script.SETTING_TXT),
-                reply_markup=reply_markup,
-                parse_mode=enums.ParseMode.HTML
-            )
+        )
+
+        await query.message.edit_text(
+            text=script.SETTING_TXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+		)
     elif query.data == "extra":
         buttons = [[
             InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help'),
