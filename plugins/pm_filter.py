@@ -901,8 +901,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text("▮▯▯")
-		await query.message.edit_text("▮▮▯")
-		await query.message.edit_text("▮▮▮")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id,
@@ -925,8 +926,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text("▮▯▯")
-		await query.message.edit_text("▮▮▯")
-		await query.message.edit_text("▮▮▮")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -991,8 +993,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text("▮▯▯")
-		await query.message.edit_text("▮▮▯")
-		await query.message.edit_text("▮▮▮")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -1010,8 +1013,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text("▮▯▯")
-		await query.message.edit_text("▮▮▯")
-		await query.message.edit_text("▮▮▮")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -1029,8 +1033,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text("▮▯▯")
-		await query.message.edit_text("▮▮▯")
-		await query.message.edit_text("▮▮▮")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -1062,7 +1067,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
         ]]
         reply_markup = InlineKeyboardMarkup(btn)
-
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
@@ -1108,6 +1112,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id, 
@@ -1128,6 +1133,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id,
@@ -1161,6 +1167,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
+		
         reply_markup = InlineKeyboardMarkup(buttons)
         await client.edit_message_media(
             query.message.chat.id,
