@@ -908,7 +908,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await client.edit_message_media(
             query.message.chat.id,
             query.message.id,
-            InputMediaPhoto('https://graph.org/file/70e7eaeae100e71113e3f-62067eff6a74a188c6.jpg')
+            InputMediaPhoto(random.choice(PICS))
         )
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1158,6 +1158,22 @@ async def cb_handler(client: Client, query: CallbackQuery):
          ], [ 
              InlineKeyboardButton('⇍ ʙᴀᴄᴋ ⇏', callback_data='start')
          ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
+		
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.edit_message_media(
+            query.message.chat.id,
+            query.message.id,
+            InputMediaPhoto(random.choice(PICS))
+        )
+        await query.message.edit_text(
+            text=script.CHANNELS,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+		)
     elif query.data == "shortlink_info":
         buttons = [[
             InlineKeyboardButton('✉️ Cᴏɴᴛᴀᴄᴛ', url='https://t.me/Aswanthcreator'),
