@@ -42,13 +42,13 @@ REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '-100') 
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://ASMOVIE_DA:ASMOVIE_DA@cluster0.grfdxbo.mongodb.net/?appName=Cluster0")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://AS_ME:AS_ME2@cluster0.x1u3ztt.mongodb.net/?appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'SilentXBotz_files')
 
 # If MULTIPLE_DB Is True Then Fill DATABASE_URI2 Value Else You Will Get Error.
 MULTIPLE_DB = is_enabled(os.environ.get('MULTIPLE_DB', "True"), True) # Type True For Turn On MULTIPLE DB FUNTION 
-DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://SACHIN_DB:SACHIN_DB@cluster0.7jn4oby.mongodb.net/?appName=Cluster0")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://AS_ME:AS_ME1@cluster0.dgqfvmd.mongodb.net/?appName=Cluster0")
 DB_CHANGE_LIMIT = int(environ.get('DB_CHANGE_LIMIT', "432")) 
 
 GRP_LNK = environ.get('GRP_LNK', 'https://t.me/Cinema_Lokam_Movies')
@@ -63,7 +63,7 @@ IS_VERIFY = is_enabled('IS_VERIFY', False)
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-100'))
 LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-100'))
 VERIFY_IMG = environ.get("VERIFY_IMG", "https://telegra.ph/file/9ecc5d6e4df5b83424896.jpg")
-
+2
 TUTORIAL = environ.get("TUTORIAL", "https://t.me/SilentXBotz")
 TUTORIAL_2 = environ.get("TUTORIAL_2", "https://t.me/SilentXBotz")
 TUTORIAL_3 = environ.get("TUTORIAL_3", "https://t.me/SilentXBotz")
