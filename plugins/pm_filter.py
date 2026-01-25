@@ -1245,105 +1245,33 @@ async def cb_handler(client: Client, query: CallbackQuery):
 	   )
 
     elif query.data == "stats":
+        if query.from_user.id not in ADMINS:
+            await query.answer(
+                "Oɴʟʏ Aᴄᴄᴇss Fᴏʀ Aᴅᴍɪɴs 🥺",
+                show_alert=True
+            )
+            return
+
         buttons = [[
-            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
+            InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
         ]]
-        await client.edit_message_media(
-            query.message.chat.id,
-            query.message.id,
-            InputMediaPhoto(random.choice(PICS))
-        )
         reply_markup = InlineKeyboardMarkup(buttons)
 
-        total_users = await db.total_users_count()
-        totl_chats = await db.total_chat_count()
-        file1 = await Media.count_documents()
+        await query.message.edit_text("▮▯▯")
+        await query.message.edit_text("▮▮▯")
+        await query.message.edit_text("▮▮▮")
 
-        size = await db.get_db_size()
-        free = 536870912 - size
-        size = get_size(size)
-        free = get_size(free)
-
-        uptime = get_readable_time(time() - botStartTime)
-        ram = psutil.virtual_memory().percent
-        cpu = psutil.cpu_percent()
-
-        file2 = await Media2.count_documents()
-        size2 = await db2.get_db_size()
-        free2 = 536870912 - size2
-        size2 = get_size(size2)
-        free2 = get_size(free2)
-
-        await query.message.edit_text(
-            script.MULTI_STATUS_TXT.format(
-                total_users,
-                totl_chats,
-                file1,
-                size,
-                free,
-                file2,
-                size2,
-                free2,
-                uptime,
-                ram,
-                cpu,
-                int(file1) + int(file2)
-            ),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-
-    elif query.data == "rfrsh":
-        await query.answer("Fetching MongoDb DataBase")
-        buttons = [[
-            InlineKeyboardButton('⟸ Bᴀᴄᴋ', callback_data='help'),
-            InlineKeyboardButton('⟲ Rᴇғʀᴇsʜ', callback_data='rfrsh')
-        ]]
         await client.edit_message_media(
-            query.message.chat.id,
-            query.message.id,
-            InputMediaPhoto(random.choice(PICS))
+            chat_id=query.message.chat.id,
+            message_id=query.message.id,
+            media=InputMediaPhoto(random.choice(PICS))
         )
-        reply_markup = InlineKeyboardMarkup(buttons)
-
-        total_users = await db.total_users_count()
-        totl_chats = await db.total_chat_count()
-        file1 = await Media.count_documents()
-
-        size = await db.get_db_size()
-        free = 536870912 - size
-        size = get_size(size)
-        free = get_size(free)
-
-        uptime = get_readable_time(time() - botStartTime)
-        ram = psutil.virtual_memory().percent
-        cpu = psutil.cpu_percent()
-
-        file2 = await Media2.count_documents()
-        size2 = await db2.get_db_size()
-        free2 = 536870912 - size2
-        size2 = get_size(size2)
-        free2 = get_size(free2)
 
         await query.message.edit_text(
-            script.MULTI_STATUS_TXT.format(
-                total_users,
-                totl_chats,
-                file1,
-                size,
-                free,
-                file2,
-                size2,
-                free2,
-                uptime,
-                ram,
-                cpu,
-                int(file1) + int(file2)
-            ),
+            text=script.ADMIN_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-	) 
+		) 
     elif query.data == "owner":
             btn = [[
                     InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="about")
