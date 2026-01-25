@@ -1,116 +1,85 @@
-import time
-import psutil
-import info
-import Script 
-
-from pymongo import MongoClient
-from pyrogram import Client, enums
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-# IMPORT YOUR EXISTING CONFIGS
-from info import (
-    DATABASE_URI,
-    DATABASE_URI2,
-    DATABASE_NAME,
-    COLLECTION_NAME,
-    MULTIPLE_DB
-)
+from Script import script
+from time import time
+import psutil
 
-from Script import MULTI_STATUS_TXT
-
-# ────────────────────────
-# START TIME
-# ────────────────────────
-START_TIME = time.time()
-
-# ────────────────────────
-# DATABASE CONNECTIONS
-# ────────────────────────
-db1 = MongoClient(DATABASE_URI)[DATABASE_NAME][COLLECTION_NAME]
-
-db2 = None
-if MULTIPLE_DB:
-    db2 = MongoClient(DATABASE_URI2)[DATABASE_NAME][COLLECTION_NAME]
-
-# ────────────────────────
-# HELPERS
-# ────────────────────────
-def format_size(size):
-    for unit in ("Bytes", "KB", "MB", "GB", "TB"):
-        if size < 1024:
-            return f"{size:.2f} {unit}"
-        size /= 1024
+from info import MULTIPLE_DB
+from database import db, db2, Media, Media2
+from utils import get_size, get_readable_time
+from Script import botStartTime
 
 
-def stats_buttons():
-    return InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("🔄 Rᴇғʀᴇsʜ", callback_data="bot_stats"),
-                InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
-            ]
-        ]
-    )
+@Client.on_callback_query(filters.regex("^bot_stats$"))
+async def bot_stats_callback(bot, query):
+    try:
+        await query.answer("📊 Loading stats...")
 
-# ────────────────────────
-# CALLBACK HANDLER
-# ────────────────────────
-@Client.on_callback_query()
-async def stats_callback(client, query):
+        total_users = await db.total_users_count()
+        total_chats = await db.total_chat_count()
+        premium = await db.all_premium_users()
 
-    if query.data != "bot_stats":
-        return
+        file1 = await Media.count_documents()
+        size = await db.get_db_size()
+        free = 536870912 - size
 
-    await query.answer("Refreshing stats...")
+        size = get_size(size)
+        free = get_size(free)
 
-    # BOT STATS
-    users = await client.get_users_count()
-    chats = await client.get_dialogs_count()
+        uptime = get_readable_time(time() - botStartTime)
+        ram = psutil.virtual_memory().percent
+        cpu = psutil.cpu_percent()
 
-    # DB 1
-    files1 = db1.count_documents({})
-    size1 = sum(
-        f.get("file_size", 0)
-        for f in db1.find({}, {"file_size": 1})
-    )
-    free1 = (512 * 1024 * 1024) - size1
+        buttons = InlineKeyboardMarkup([
+            [InlineKeyboardButton("🔄 Refresh", callback_data="bot_stats")],
+            [InlineKeyboardButton("⟸ Back", callback_data="help")]
+        ])
 
-    # DB 2
-    if MULTIPLE_DB and db2:
-        files2 = db2.count_documents({})
-        size2 = sum(
-            f.get("file_size", 0)
-            for f in db2.find({}, {"file_size": 1})
+        if not MULTIPLE_DB:
+            await query.message.edit_text(
+                script.STATUS_TXT.format(
+                    total_users,
+                    total_chats,
+                    premium,
+                    file1,
+                    size,
+                    free,
+                    uptime,
+                    ram,
+                    cpu
+                ),
+                reply_markup=buttons,
+                disable_web_page_preview=True
+            )
+            return
+
+        file2 = await Media2.count_documents()
+        size2 = await db2.get_db_size()
+        free2 = 536870912 - size2
+
+        size2 = get_size(size2)
+        free2 = get_size(free2)
+
+        await query.message.edit_text(
+            script.MULTI_STATUS_TXT.format(
+                total_users,
+                total_chats,
+                premium,
+                file1,
+                size,
+                free,
+                file2,
+                size2,
+                free2,
+                uptime,
+                ram,
+                cpu,
+                int(file1) + int(file2)
+            ),
+            reply_markup=buttons,
+            disable_web_page_preview=True
         )
-        free2 = (512 * 1024 * 1024) - size2
-    else:
-        files2 = 0
-        size2 = 0
-        free2 = 0
 
-    # SYSTEM STATS
-    uptime = time.strftime(
-        "%Hh %Mm %Ss",
-        time.gmtime(time.time() - START_TIME)
-    )
-
-    text = MULTI_STATUS_TXT.format(
-        users,
-        chats,
-        files1,
-        format_size(size1),
-        format_size(free1),
-        files2,
-        format_size(size2),
-        format_size(free2),
-        uptime,
-        psutil.virtual_memory().percent,
-        psutil.cpu_percent(),
-        files1 + files2
-    )
-
-    await query.message.edit_text(
-        text=text,
-        reply_markup=stats_buttons(),
-        parse_mode=enums.ParseMode.HTML
-)
+    except Exception as e:
+        print(e)
