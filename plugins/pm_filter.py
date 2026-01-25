@@ -1279,7 +1279,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             script.MULTI_STATUS_TXT.format(
                 total_users,
                 totl_chats,
-                premium,
                 file1,
                 size,
                 free,
@@ -1331,7 +1330,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             script.MULTI_STATUS_TXT.format(
                 total_users,
                 totl_chats,
-                premium,
                 file1,
                 size,
                 free,
