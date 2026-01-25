@@ -1275,7 +1275,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         size2 = get_size(size2)
         free2 = get_size(free2)
 
-        await SilentXBotz.edit(
+        await query.message.edit_text(
             script.MULTI_STATUS_TXT.format(
                 total_users,
                 totl_chats,
@@ -1326,7 +1326,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         size2 = get_size(size2)
         free2 = get_size(free2)
 
-        await SilentXBotz.edit(
+        await query.message.edit_text(
             script.MULTI_STATUS_TXT.format(
                 total_users,
                 totl_chats,
