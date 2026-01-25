@@ -1,7 +1,7 @@
 import time
 import psutil
 import info
-import script 
+import Script 
 
 from pymongo import MongoClient
 from pyrogram import Client, enums
@@ -16,7 +16,7 @@ from info import (
     MULTIPLE_DB
 )
 
-from script import MULTI_STATUS_TXT
+from Script import MULTI_STATUS_TXT
 
 # ────────────────────────
 # START TIME
