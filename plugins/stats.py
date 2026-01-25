@@ -1,5 +1,7 @@
 import time
 import psutil
+import info
+import script 
 
 from pymongo import MongoClient
 from pyrogram import Client, enums
