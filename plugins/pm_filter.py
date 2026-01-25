@@ -1255,6 +1255,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         reply_markup = InlineKeyboardMarkup(buttons)
+
         total_users = await db.total_users_count()
         totl_chats = await db.total_chat_count()
         file1 = await Media.count_documents()
@@ -1268,10 +1269,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ram = psutil.virtual_memory().percent
         cpu = psutil.cpu_percent()
 
-		file2 = await Media2.count_documents()
+        file2 = await Media2.count_documents()
         db2stats = await db2_stats.command("dbStats")
         db2_size = db2stats['dataSize']
         free2 = DB_SIZE - db2_size
+
         await query.message.edit_text(
             text=script.MULTI_STATUS_TXT.format(
                 total_users,
@@ -1286,10 +1288,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ram,
                 cpu,
                 int(file1) + int(file2)
-		)
+            ),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
+
     elif query.data == "rfrsh":
         await query.answer("Fetching MongoDb DataBase")
         buttons = [[
@@ -1316,10 +1319,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ram = psutil.virtual_memory().percent
         cpu = psutil.cpu_percent()
 
-		file2 = await Media2.count_documents()
+        file2 = await Media2.count_documents()
         db2stats = await db2_stats.command("dbStats")
         db2_size = db2stats['dataSize']
         free2 = DB_SIZE - db2_size
+
         await query.message.edit_text(
             text=script.MULTI_STATUS_TXT.format(
                 total_users,
@@ -1334,8 +1338,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ram,
                 cpu,
                 int(file1) + int(file2)
-	  	)
-			reply_markup=reply_markup,
+            ),
+            reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
 		)
     elif query.data == "owner":
