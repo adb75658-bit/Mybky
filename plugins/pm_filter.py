@@ -1255,40 +1255,23 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InputMediaPhoto(random.choice(PICS))
         )
         reply_markup = InlineKeyboardMarkup(buttons)
-
         total_users = await db.total_users_count()
         totl_chats = await db.total_chat_count()
+        premium = await db.all_premium_users()
         file1 = await Media.count_documents()
-
-        DB_SIZE = 512 * 1024 * 1024  # 512MB
-        dbstats = await db_stats.command("dbStats")
-        db_size = dbstats['dataSize']
-        free = DB_SIZE - db_size
-
+        size = await db.get_db_size()
+        free = 536870912 - size
+        size = get_size(size)
+        free = get_size(free)
         uptime = get_readable_time(time() - botStartTime)
         ram = psutil.virtual_memory().percent
         cpu = psutil.cpu_percent()
-
-        file2 = await Media2.count_documents()
-        db2stats = await db2_stats.command("dbStats")
-        db2_size = db2stats['dataSize']
-        free2 = DB_SIZE - db2_size
-
-        await query.message.edit_text(
-            text=script.MULTI_STATUS_TXT.format(
-                total_users,
-                totl_chats,
-                file1,
-                get_size(db_size),
-                get_size(free),
-                file2,
-                get_size(db2_size),
-                get_size(free2),
-                uptime,
-                ram,
-                cpu,
-                int(file1) + int(file2)
-            ),
+		file2 = await Media2.count_documents()
+        size2 = await db2.get_db_size()
+        free2 = 536870912 - size2  
+        size2 = get_size(size2)
+        free2 = get_size(free2)
+        await SilentXBotz.edit(script.MULTI_STATUS_TXT.format( total_users, totl_chats, premium, file1, size, free, file2, size2, free2, uptime, ram, cpu, (int(file1) + int(file2))),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
