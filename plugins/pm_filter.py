@@ -1050,28 +1050,32 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "admin":
         if query.from_user.id not in ADMINS:
-            await query.answer("Sᴏʀʀʏ Oɴʟʏ Fᴏʀ Aᴅᴍɪɴs 🤍", show_alert=True)
+            await query.answer(
+                "Sᴏʀʀʏ Oɴʟʏ Fᴏʀ Aᴅᴍɪɴs 🤍",
+                show_alert=True
+            )
             return
 
         buttons = [[
             InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
         ]]
-		reply_markup = InlineKeyboardMarkup(buttons)
+        reply_markup = InlineKeyboardMarkup(buttons)
+
         await query.message.edit_text("▮▯▯")
         await query.message.edit_text("▮▮▯")
         await query.message.edit_text("▮▮▮")
-		
-        reply_markup = InlineKeyboardMarkup(buttons)
+
         await client.edit_message_media(
-            query.message.chat.id,
-            query.message.id,
-            InputMediaPhoto(random.choice(PICS))
+            chat_id=query.message.chat.id,
+            message_id=query.message.id,
+            media=InputMediaPhoto(random.choice(PICS))
         )
+
         await query.message.edit_text(
             text=script.ADMIN_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
-		)     
+		) 
     elif query.data == "rules":
         btn = [[
             InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help")
