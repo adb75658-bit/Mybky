@@ -161,9 +161,9 @@ async def generic_filter_handler(client, query, key, offset, search_query):
                 callback_data=f'file#{file.file_id}'
             )])
     btn.insert(0, [
-        InlineKeyboardButton("ᴘɪxᴇʟ", callback_data=f"qualities#{key}#0"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
-        InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ",  callback_data=f"seasons#{key}#0")
+        InlineKeyboardButton("Qᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#0"),
+        InlineKeyboardButton("Lᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
+        InlineKeyboardButton("Sᴇᴀꜱᴏɴ",  callback_data=f"seasons#{key}#0")
     ])
     btn.insert(1, [InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ 📥", callback_data=f"sendfiles#{key}")])
     await build_pagination_buttons(btn, total_results, offset, n_offset, req, key, settings)
@@ -1737,9 +1737,9 @@ async def auto_filter(client, msg, spoll=False):
             )])
     
     btn.insert(0, [
-        InlineKeyboardButton("ᴘɪxᴇʟ", callback_data=f"qualities#{key}#0"),
-        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
-        InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ",  callback_data=f"seasons#{key}#0")
+        InlineKeyboardButton("Qᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#0"),
+        InlineKeyboardButton("Lᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#0"),
+        InlineKeyboardButton("Sᴇᴀꜱᴏɴ",  callback_data=f"seasons#{key}#0")
     ])
     btn.insert(1, [InlineKeyboardButton("📥 Sᴇɴᴅ Aʟʟ 📥", callback_data=f"sendfiles#{key}")])
 
@@ -1802,9 +1802,9 @@ async def auto_filter(client, msg, spoll=False):
                 cap += f"\n\n<b>{file_num}. <a href='https://telegram.me/{temp.U_NAME}?start=file_{message.chat.id}_{file.file_id}'>{get_size(file.file_size)} | {clean_filename(file.file_name)}</a></b>"
     else:
         if settings.get('button'):
-            cap = f"<b><blockquote>Hᴇʏ,{message.from_user.mention}</blockquote>\n\n📂 Hᴇʀᴇ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇᴀʀᴄʜ <code>{search}</code></b>\n\n"
-        else:
-            cap = f"<b><blockquote>Hᴇʏ,{message.from_user.mention}</blockquote>\n\n📂 Hᴇʀᴇ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇᴀʀᴄʜ <code>{search}</code></b>\n\n"            
+			cap = f"<b>Hᴇʏ👋🏻{message.from_user.mention}💝\n\n<blockquote>🍂 𝐐𝐮𝐞𝐫𝐲 : <code>{search}</code>\n📚 𝐓𝐨𝐭𝐚𝐥 𝐑𝐞𝐬𝐮𝐥𝐭𝐬 : <code>{total_results}</code></blockquote>\n\n📫 Yᴏᴜʀ Fɪʟᴇs Aʀᴇ Rᴇᴀᴅʏ Nᴏᴡ</b>"
+		else:
+            cap = f"<b>Hᴇʏ👋🏻{message.from_user.mention}💝\n\n<blockquote>🍂 𝐐𝐮𝐞𝐫𝐲 : <code>{search}</code>\n📚 𝐓𝐨𝐭𝐚𝐥 𝐑𝐞𝐬𝐮𝐥𝐭𝐬 : <code>{total_results}</code></blockquote>\n\n📫 Yᴏᴜʀ Fɪʟᴇs Aʀᴇ Rᴇᴀᴅʏ Nᴏᴡ</b>"            
             for file_num, file in enumerate(files, start=1):
                 cap += f"<b>{file_num}. <a href='https://telegram.me/{temp.U_NAME}?start=file_{message.chat.id}_{file.file_id}'>{get_size(file.file_size)} | {clean_filename(file.file_name)}\n\n</a></b>"                  
     try:
