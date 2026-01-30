@@ -1799,20 +1799,15 @@ async def auto_filter(client, msg, spoll=False):
         temp.IMDB_CAP[message.from_user.id] = cap
         if not settings.get('button'):
             for file_num, file in enumerate(files, start=1):
-                cap += f"\n\n<b>{file_num}. <a href='https://telegram.me/{temp.U_NAME}?start=file_{message.chat.id}_{file.file_id}'>{get_size(file.file_size)} | {clean_filename(file.file_name)}</a></b>"
+                cap += f"<b>\n{file_num}. <a href='https://telegram.me/{temp.U_NAME}?start=file_{message.chat.id}_{file.file_id}'>[{get_size(file.file_size)}] {clean_filename(file.file_name)}\n</a></b>"
     else:
-		if settings.get('button'):
-            cap = f"<b>Hᴇʏ👋🏻{message.from_user.mention}💝\n\n" \
-                  f"<blockquote>🍂 𝐐𝐮𝐞𝐫𝐲 : <code>{search}</code>\n" \
-                  f"📚 𝐓𝐨𝐭𝐚𝐥 𝐑𝐞𝐬𝐮𝐥𝐭𝐬 : <code>{total_results}</code></blockquote>\n\n" \
-                  f"📫 Yᴏᴜʀ Fɪʟᴇs Aʀᴇ Rᴇᴀᴅʏ Nᴏᴡ</b>"
+		
+        if settings.get('button'):
+            cap = f"<b>Hᴇʏ👋🏻{message.from_user.mention}💝\n\n<blockquote>🍂 𝐐𝐮𝐞𝐫𝐲 : <code>{search}</code>\n📚 𝐓𝐨𝐭𝐚𝐥 𝐑𝐞𝐬𝐮𝐥𝐭𝐬 : <code>{total_results}</code></blockquote>\n\n📫 Yᴏᴜʀ Fɪʟᴇs Aʀᴇ Rᴇᴀᴅʏ Nᴏᴡ</b>"
         else:
-            cap = f"<b>Hᴇʏ👋🏻{message.from_user.mention}💝\n\n" \
-                  f"<blockquote>🍂 𝐐𝐮𝐞𝐫𝐲 : <code>{search}</code>\n" \
-                  f"📚 𝐓𝐨𝐭𝐚𝐥 𝐑𝐞𝐬𝐮𝐥𝐭𝐬 : <code>{total_results}</code></blockquote>\n\n" \
-                  f"📫 Yᴏᴜʀ Fɪʟᴇs Aʀᴇ Rᴇᴀᴅʏ Nᴏᴡ</b>"            
+            cap = f"<b>Hᴇʏ👋🏻{message.from_user.mention}💝\n\n<blockquote>🍂 𝐐𝐮𝐞𝐫𝐲 : <code>{search}</code>\n📚 𝐓𝐨𝐭𝐚𝐥 𝐏𝐚𝐠𝐞𝐬 : <code>{total_pages}</code></blockquote>\n\n📫 Yᴏᴜʀ Fɪʟᴇs Aʀᴇ Rᴇᴀᴅʏ Nᴏᴡ</b>"           
             for file_num, file in enumerate(files, start=1):
-                cap += f"<b>{file_num}. <a href='https://telegram.me/{temp.U_NAME}?start=file_{message.chat.id}_{file.file_id}'>{get_size(file.file_size)} | {clean_filename(file.file_name)}\n\n</a></b>"                  
+                cap += f"<b>{file_num}. <a href='https://telegram.me/{temp.U_NAME}?start=file_{message.chat.id}_{file.file_id}'>{get_size(file.file_size)} | {clean_filename(file.file_name)}\n\n</a></b>"                    
     try:
         if imdb and poster_url:
             try:
