@@ -216,21 +216,22 @@ Cᴏᴍᴍᴀɴᴅs Aɴᴅ Usᴀɢᴇ:
 <b>• Tᴏᴛᴀʟ Fɪʟᴇꜱ:</b> <code>{}</code>
 <b>•❅───────✧❅✦❅✧───────❅•</b>"""
 
-    STATUS_TXT = """<b>╭─[ ⚡ ᴅᴀᴛᴀʙᴀsᴇ ꜱᴛᴀᴛᴜꜱ ⚡ ]─⍟</b>
-│
-<b>├─[ ᴅᴀᴛᴀʙᴀsᴇ ]─⍟</b>
+    STATUS_TXT = """<b>Tᴏᴛᴀʟ Fɪʟᴇs Fʀᴏᴍ Bᴏᴛʜ DBs: <code>{}</code>
 
-<b>• Tᴏᴛᴀʟ Usᴇʀs:</b> <code>{}</code>
-<b>• Tᴏᴛᴀʟ Cʜᴀᴛs:</b> <code>{}</code>
-<b>• Tᴏᴛᴀʟ Fɪʟᴇs:</b> <code>{}</code>
-<b>• Usᴇᴅ Sᴛᴏʀᴀɢᴇ:</b> <code>{}</code>
-<b>• Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ:</b> <code>{}</code>
+Bᴏᴛ Usᴇʀs ᴀɴᴅ Cʜᴀᴛs Cᴏᴜɴᴛ
+★ Tᴏᴛᴀʟ Usᴇʀs: <code>{}</code>
+★ Tᴏᴛᴀʟ Cʜᴀᴛs: <code>{}</code>
 
-<b>├─[ 🤖 ʙᴏᴛ ᴅᴇᴛᴀɪʟs ]─⍟</b>
-<b>• Uᴘᴛɪᴍᴇ:</b> {}
-<b>• Rᴀᴍ:</b> <code>{}%</code>
-<b>• Cᴘᴜ:</b> <code>{}%</code>
-<b>╰──────────────────────⍟</b>"""
+Pʀɪᴍᴀʀʏ Dᴀᴛᴀʙᴀsᴇ Sᴛᴀᴛɪsᴛɪᴄs 
+★ Tᴏᴛᴀʟ Fɪʟᴇs: <code>{}</code>
+★ Usᴇᴅ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
+★ Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
+
+Sᴇᴄᴏɴᴅᴀʀʏ Dᴀᴛᴀʙᴀsᴇ Sᴛᴀᴛɪsᴛɪᴄs
+★ Tᴏᴛᴀʟ Fɪʟᴇs: <code>{}</code>
+★ Usᴇᴅ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
+★ Fʀᴇᴇ Sᴛᴏʀᴀɢᴇ: <code>{} MB</code>
+</b>"""
 
     EARN_INFO = """<b>💰 <u>ʜᴏᴡ ᴛᴏ ᴇᴀʀɴ ᴍᴏɴᴇʏ ᴡɪᴛʜ ᴛʜɪꜱ ʙᴏᴛ</u> 💰
 
