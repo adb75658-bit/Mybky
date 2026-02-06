@@ -407,9 +407,12 @@ Sᴇᴄᴏɴᴅᴀʀʏ Dᴀᴛᴀʙᴀsᴇ Sᴛᴀᴛɪsᴛɪᴄs
 
 ᴍᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = """<b>{file_name}\n
-📤 ᴜᴘʟᴏᴀᴅᴇᴅ ʙʏ: <a href="https://t.me/SilentXBotz">SɪʟᴇɴᴛXʙᴏᴛᴢ</a></b>"""
+    CAPTION =  """<blockquote><b>📁 Fɪʟᴇ Nᴀᴍᴇ: 📄 <code>{file_name}</code>
 
+💾 Fɪʟᴇ Sɪᴢᴇ:  📦 <code>{file_size}</code>
+
+<a href="https://t.me/Cinema_Updates_OTT">[⚡ Jᴏɪɴ ᴄɪɴᴇᴍᴀ ʟᴏᴋᴀᴍ ⚡]</a></b></blockquote>
+"""
     IMDB_TEMPLATE_TXT = """
 <b>🎬 ᴛɪᴛʟᴇ: <a href={url}>{title}</a>
 🎭 ɢᴇɴʀᴇꜱ: {genres}
